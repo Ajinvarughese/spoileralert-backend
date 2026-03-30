@@ -14,6 +14,7 @@ import com.major.spoileralert.exception.EntityNotFoundException;
 import com.major.spoileralert.service.AuthService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -58,8 +59,11 @@ public class AuthController {
      */
     @GetMapping("/verify-email")
     public ResponseEntity<String> verifyEmail(@RequestParam String token) {
-        String responseMessage = authService.verifyEmail(token);
-        return ResponseEntity.ok(responseMessage);
+        String html = authService.verifyEmail(token);
+
+        return ResponseEntity.ok()
+                .contentType(MediaType.TEXT_HTML)
+                .body(html);
     }
 
     @GetMapping("/users/{id}")

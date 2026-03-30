@@ -148,6 +148,7 @@ public class AuthService {
     /**
      * Verifies a user's email using a token.
      */
+
     public String verifyEmail(String token) {
         User user = userRepository.findByVerificationToken(token)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid or expired token."));
@@ -155,7 +156,135 @@ public class AuthService {
         user.setVerified(true);
         user.setVerificationToken(null);
         saveUser(user);
-        return "Email verified successfully!";
+
+       return """
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+        <meta charset="UTF-8">
+        <title>Email Verified</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <style>
+            body {
+                margin: 0;
+                font-family: 'Segoe UI', sans-serif;
+                background: linear-gradient(135deg, #f5f6fa, #e4e9f0);
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+            }
+        
+            /* NAVBAR */
+            .navbar {
+                background: white;
+                padding: 15px 40px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            }
+        
+            .logo {
+                font-size: 20px;
+                font-weight: bold;
+                color: #e53935;
+            }
+        
+            /* CENTER */
+            .container {
+                flex: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        
+            .card {
+                background: white;
+                padding: 50px 40px;
+                border-radius: 16px;
+                box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+                text-align: center;
+                width: 420px;
+                animation: fadeIn 0.6s ease-in-out;
+            }
+        
+            @keyframes fadeIn {
+                from {opacity: 0; transform: translateY(20px);}
+                to {opacity: 1; transform: translateY(0);}
+            }
+        
+            .icon {
+                font-size: 60px;
+                color: #28a745;
+                margin-bottom: 15px;
+            }
+        
+            h2 {
+                margin: 10px 0;
+                font-size: 24px;
+                color: #222;
+            }
+        
+            p {
+                color: #555;
+                font-size: 15px;
+                margin-bottom: 25px;
+            }
+        
+            .btn {
+                display: inline-block;
+                padding: 12px 25px;
+                background: #e53935;
+                color: white;
+                text-decoration: none;
+                border-radius: 8px;
+                font-weight: bold;
+                transition: 0.3s;
+            }
+        
+            .btn:hover {
+                background: #c62828;
+                transform: translateY(-2px);
+            }
+        
+            /* FOOTER */
+            .footer {
+                background: #0d1b2a;
+                color: white;
+                text-align: center;
+                padding: 25px;
+                font-size: 14px;
+            }
+        </style>
+        </head>
+        
+        <body>
+        
+        <div class="navbar">
+            <div class="logo">⚠ Spoiler Alert</div>
+        </div>
+        
+        <div class="container">
+            <div class="card">
+                <div class="icon">✅</div>
+                <h2>Email Verified Successfully!</h2>
+                <p>Your account is now active. You can safely login and continue.</p>
+        
+                <a href="http://localhost:3000/signin" class="btn">
+                    Go to Login
+                </a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            Making our communities safer and better, one report at a time.
+        </div>
+        
+        </body>
+        </html>
+        """;
     }
 
     /**
