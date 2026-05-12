@@ -179,9 +179,45 @@ CREATE TABLE `app_user` (
 -- -----------------------------------------------------
 -- Insert Department Admins
 -- -----------------------------------------------------
-INSERT INTO `spoiler_alert_db`.`app_user` (`role`, `department_id`, `full_name`, `user_name`, `email`, `password`, `phone`, `status`, `verified`) VALUES
-  ('DEPARTMENT_ADMIN', '1', 'Department Admin Police', 'binupoliceam@gmail.com', 'binupoliceam@gmail.com', '$2a$10$jjAMrErVy3hCgfRwVKHP/OhlZS5S6XSIkw2yIcCGpQirm6VkPu2Nu', '09526998002', 'ACTIVE', '1'),
-  ('DEPARTMENT_ADMIN', '10', 'Department Admin Municipal', 'sanumunicipalam@gmail.com', 'sanumunicipalam@gmail.com', '$2a$10$jjAMrErVy3hCgfRwVKHP/OhlZS5S6XSIkw2yIcCGpQirm6VkPu2Nu', '09526998002', 'ACTIVE', '1');
+-- Insert Department Admins for ALL Departments
+INSERT INTO `spoiler_alert_db`.`app_user`
+(`role`, `department_id`, `full_name`, `user_name`, `email`, `password`, `phone`, `status`, `verified`)
+VALUES
+
+-- Police (already exists - skip if duplicate)
+('DEPARTMENT_ADMIN', '1', 'Department Admin Police', 'admin_police', 'admin_police@gmail.com', '$2a$10$jjAMrErVy3hCgfRwVKHP/OhlZS5S6XSIkw2yIcCGpQirm6VkPu2Nu', '9000000001', 'ACTIVE', '1'),
+
+-- Fire
+('DEPARTMENT_ADMIN', '2', 'Department Admin Fire', 'admin_fire', 'admin_fire@gmail.com', '$2a$10$jjAMrErVy3hCgfRwVKHP/OhlZS5S6XSIkw2yIcCGpQirm6VkPu2Nu', '9000000002', 'ACTIVE', '1'),
+
+-- Environment
+('DEPARTMENT_ADMIN', '3', 'Department Admin Environment', 'admin_env', 'admin_env@gmail.com', '$2a$10$jjAMrErVy3hCgfRwVKHP/OhlZS5S6XSIkw2yIcCGpQirm6VkPu2Nu', '9000000003', 'ACTIVE', '1'),
+
+-- Transport
+('DEPARTMENT_ADMIN', '4', 'Department Admin Transport', 'admin_transport', 'admin_transport@gmail.com', '$2a$10$jjAMrErVy3hCgfRwVKHP/OhlZS5S6XSIkw2yIcCGpQirm6VkPu2Nu', '9000000004', 'ACTIVE', '1'),
+
+-- Health
+('DEPARTMENT_ADMIN', '5', 'Department Admin Health', 'admin_health', 'admin_health@gmail.com', '$2a$10$jjAMrErVy3hCgfRwVKHP/OhlZS5S6XSIkw2yIcCGpQirm6VkPu2Nu', '9000000005', 'ACTIVE', '1'),
+
+-- Consumer
+('DEPARTMENT_ADMIN', '6', 'Department Admin Consumer', 'admin_consumer', 'admin_consumer@gmail.com', '$2a$10$jjAMrErVy3hCgfRwVKHP/OhlZS5S6XSIkw2yIcCGpQirm6VkPu2Nu', '9000000006', 'ACTIVE', '1'),
+
+-- Labour
+('DEPARTMENT_ADMIN', '7', 'Department Admin Labour', 'admin_labour', 'admin_labour@gmail.com', '$2a$10$jjAMrErVy3hCgfRwVKHP/OhlZS5S6XSIkw2yIcCGpQirm6VkPu2Nu', '9000000007', 'ACTIVE', '1'),
+
+-- Traffic
+('DEPARTMENT_ADMIN', '8', 'Department Admin Traffic', 'admin_traffic', 'admin_traffic@gmail.com', '$2a$10$jjAMrErVy3hCgfRwVKHP/OhlZS5S6XSIkw2yIcCGpQirm6VkPu2Nu', '9000000008', 'ACTIVE', '1'),
+
+-- Wildlife
+('DEPARTMENT_ADMIN', '9', 'Department Admin Wildlife', 'admin_wildlife', 'admin_wildlife@gmail.com', '$2a$10$jjAMrErVy3hCgfRwVKHP/OhlZS5S6XSIkw2yIcCGpQirm6VkPu2Nu', '9000000009', 'ACTIVE', '1'),
+
+-- Municipal (already exists - optional)
+('DEPARTMENT_ADMIN', '10', 'Department Admin Municipal', 'admin_municipal', 'admin_municipal@gmail.com', '$2a$10$jjAMrErVy3hCgfRwVKHP/OhlZS5S6XSIkw2yIcCGpQirm6VkPu2Nu', '9000000010', 'ACTIVE', '1'),
+
+-- Education
+('DEPARTMENT_ADMIN', '11', 'Department Admin Education', 'admin_education', 'admin_education@gmail.com', '$2a$10$jjAMrErVy3hCgfRwVKHP/OhlZS5S6XSIkw2yIcCGpQirm6VkPu2Nu', '9000000011', 'ACTIVE', '1');
+
+
 
 -- -----------------------------------------------------
 -- Insert Admin
